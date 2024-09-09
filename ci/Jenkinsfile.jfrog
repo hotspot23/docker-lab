@@ -5,7 +5,7 @@ pipeline {
     }
     environment {
         //shegerlab2024.jfrog.io/petclinic
-        DOCKER_IMAGE_NAME = "hotspot23.jfrog.io/petclinic/petclinic:1.0.0"
+        DOCKER_IMAGE_NAME = "hotspot23.jfrog.io/petclinic-docker/petclinic:1.0.0"
     }
 
     parameters {
@@ -22,7 +22,7 @@ pipeline {
         
         stage('Build Package') {
             steps {
-                dir('petclinic-app') { // Change directory to 'petclinic-docker app'
+                dir('petclinic-app') { // Change directory to 'petclinicapp'
                     sh 'mvn clean install -DskipTests=true' // Build the package without running tests
                 }
             }
