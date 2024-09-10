@@ -1,7 +1,9 @@
 # deploy.yml
 ---
-- hosts: webservers
-  become: yes
+- hosts: qa
+  vars_files:
+    - vault.yml
+  become: true
   roles:
     - ./ansible/deployer
 
