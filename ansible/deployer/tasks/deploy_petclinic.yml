@@ -1,0 +1,26 @@
+# tasks/deploy_petclinic.yml
+
+---
+- name: Log in to JFrog Artifactory Docker registry
+  shell: docker login {{ jfrog_url }} --username {{ jfrog_username }} --password {{ jfrog_password }}
+
+- name: Stop and remove the existing petclinic container if it exists
+  docker_container:
+    name: "{{ container_name }}"
+    state: absent  # This stops and removes the container if it exists
+
+- name: Pull the latest petclinic Docker image
+  docker_image:
+    name: "{{ docker_image_name }}"
+    source: pull  # Pull the latest image from the registry
+
+- name: Run petclinic container
+  docker_container:
+    name: "{{ container_name }}"
+    image: "{{ docker_image_name }}"
+    state: started
+    ports:
+      - "{{ app_port }}:{{ app_port }}"  # Map the given app port to 8081 inside the container
+    restart_policy: always  # Ensure the container restarts if it crashes
+    detach: true  # Run the container in the background
+    cleanup: true  # Remove intermediate containers after build
