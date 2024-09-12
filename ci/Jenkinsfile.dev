@@ -14,7 +14,7 @@ pipeline {
         string(name: 'SlackTokenCredentialId', defaultValue: 'SLACK-TOKEN', description: 'Slack token credential ID')
         string(name: 'AppPort', defaultValue: '8081', description: 'Port to run the application')
         choice(name: 'DeployEnvironment', choices: ['QA', 'Production'], description: 'Choose environment to deploy')
-        string(name: 'JFrogURL', defaultValue: 'shegerlab2024.jfrog.io', description: 'JFrog Artifactory URL')
+        string(name: 'JFrogURL', defaultValue: 'hotspot23.jfrog.io', description: 'JFrog Artifactory URL')
         string(name: 'RepositoryName', defaultValue: 'petclinic', description: 'Repository name for Docker image') // Parameterize repository name
         string(name: 'ImageName', defaultValue: 'petclinic', description: 'Docker image name') // Parameterize image name
     }
