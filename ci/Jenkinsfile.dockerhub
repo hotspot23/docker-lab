@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     parameters {
-        string(name: 'GIT_REPO_URL', defaultValue: 'https://github.com/gecham00/docker-lab.git', description: 'Git repository URL')
+        string(name: 'GIT_REPO_URL', defaultValue: 'https://github.com/hotspot23/docker-lab.git', description: 'Git repository URL')
         string(name: 'GIT_BRANCH', defaultValue: 'main', description: 'Git branch name')
     }
 
