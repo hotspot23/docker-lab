@@ -90,7 +90,7 @@ pipeline {
         }
     }
 
-    //post {
+    post {
         //success {
            // slackSend (
                 //channel: '#jenkins-build-sonar', // Replace with your desired Slack channel
